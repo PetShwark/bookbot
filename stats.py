@@ -19,3 +19,13 @@ def sort_character_counts(char_counts):
         result.append({"char": char, "num": count})
     result.sort(key=lambda x: x["num"], reverse=True)
     return result
+
+def sort_on(charCount: tuple[str, int]) -> int:
+    return charCount[1]
+
+def chars_dict_to_sorted_list(charCounts: dict[str, int]) -> list[tuple[str, int]]:
+    result = []
+    for char in charCounts.keys():
+        result.append((char, charCounts[char]))
+    result = sorted(result, key=sort_on, reverse=True)
+    return result
